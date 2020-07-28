@@ -1,0 +1,6 @@
+/node_modules/
+/public/build/
+release
+main.js
+main.js.map
+.DS_Store
