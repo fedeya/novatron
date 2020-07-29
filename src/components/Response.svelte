@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Highlight } from 'svelte-highlight';
   import { json } from 'svelte-highlight/languages';
-  import { data, status } from '../store/response';
+  import { data, status, loading } from '../store/response';
 </script>
 
 <style>
@@ -14,5 +14,9 @@
 
 <div class="status">{$status || ''}</div>
 <div class="highlight">
-  <Highlight language={json} code={$data} />
+  {#if $loading}
+    <p>loading...</p>
+  {:else}
+    <Highlight language={json} code={$data} />
+  {/if}
 </div>

@@ -4,7 +4,7 @@
   import List from 'smelte/src/components/List';
   import Button from 'smelte/src/components/Button';
   import { Select } from 'smelte';
-  import { data, status } from '../store/response';
+  import { data, status, loading } from '../store/response';
 
   let url: string = 'http://jsonplaceholder.typicode.com/users';
   let method: string = 'get';
@@ -19,6 +19,7 @@
   ];
 
   async function handleSubmit() {
+    loading.set(true);
     try {
       let body;
 
@@ -35,6 +36,7 @@
       data.set(JSON.stringify(err.response.data, null, '  '));
       status.set(err.response.status);
     }
+    loading.set(false);
   }
 </script>
 
@@ -45,6 +47,6 @@
       <List bind:value={method} select={true} items={methods} />
     </div>
   </Select>
-  <TextField textarea bind:value={raw} />
+  <TextField textarea bind:value={raw} label="Raw JSON" />
   <Button>Send</Button>
 </form>
