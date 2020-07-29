@@ -1,11 +1,14 @@
 <script lang="ts">
-    import TextField from 'smelte/src/components/TextField';
+  import { github } from 'svelte-highlight/styles';
+  import Request from './components/Request.svelte';
+  import Response from './components/Response.svelte';
 </script>
 
-<style>
-
-</style>
+<svelte:head>
+  {@html github}
+</svelte:head>
 
 <div class="container mx-auto">
-    <TextField label="Url" />
+  <Request />
+  <Response />
 </div>
