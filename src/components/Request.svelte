@@ -42,11 +42,7 @@
 
 <form on:submit|preventDefault={handleSubmit}>
   <TextField label="Url" bind:value={url} />
-  <Select items={methods} bind:value={method} label="Method">
-    <div slot="options">
-      <List bind:value={method} select={true} items={methods} />
-    </div>
-  </Select>
+  <Select items={methods} bind:value={method} label="Method" />
   <TextField textarea bind:value={raw} label="Raw JSON" />
   <Button>Send</Button>
 </form>
