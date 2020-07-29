@@ -6,16 +6,20 @@
 
   $: {
     if (el) {
-      const formatter = new JSONFormatter(code, 2, {
-        hoverPreviewEnabled: true,
-        hoverPreviewArrayCount: 100,
-        hoverPreviewFieldCount: 5,
-        theme: '',
-        animateOpen: true,
-        animateClose: true,
-        useToJSON: true
-      });
-      el.appendChild(formatter.render());
+      if (code) {
+        const formatter = new JSONFormatter(code, 2, {
+          hoverPreviewEnabled: true,
+          hoverPreviewArrayCount: 100,
+          hoverPreviewFieldCount: 5,
+          theme: '',
+          animateOpen: true,
+          animateClose: true,
+          useToJSON: true
+        });
+        el.appendChild(formatter.render());
+      } else {
+        el.innerHTML = '';
+      }
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { Highlight } from 'svelte-highlight';
-  import { json } from 'svelte-highlight/languages';
+  import ProgressCircular from 'smelte/src/components/ProgressCircular';
   import { data, status, loading } from '../store/response';
+  import JsonViewer from './JsonViewer.svelte';
 </script>
 
 <style>
@@ -15,8 +15,8 @@
 <div class="status">{$status || ''}</div>
 <div class="highlight">
   {#if $loading}
-    <p>loading...</p>
+    <ProgressCircular />
   {:else}
-    <Highlight language={json} code={$data} />
+    <JsonViewer code={$data} />
   {/if}
 </div>

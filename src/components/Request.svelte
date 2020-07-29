@@ -30,7 +30,7 @@
       }
 
       const res = await axios[method](url, body);
-      data.set(JSON.stringify(res.data, null, '  '));
+      data.set(res.data);
       status.set(res.status);
     } catch (err) {
       data.set(JSON.stringify(err.response.data, null, '  '));
