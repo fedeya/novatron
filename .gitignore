@@ -3,4 +3,5 @@
 release
 main.js
 main.js.map
+.vscode
 .DS_Store
