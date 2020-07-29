@@ -42,6 +42,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "electron": "^9.1.1",
+    "json-formatter-js": "^2.3.4",
     "sirv-cli": "^1.0.0",
     "smelte": "^1.0.15",
     "svelte-highlight": "^0.6.2"
