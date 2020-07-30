@@ -10,6 +10,7 @@
     "!package.json",
     "!package-lock.json",
     "!tsconfig.json",
+    "!tsconfig-serve.json",
     "!src/",
     "!rollup.config.js"
   ],
