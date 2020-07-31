@@ -6,7 +6,6 @@
   let maximized = currentWindow && currentWindow.isMaximized();
 
   function onChangeState() {
-    console.log('change', currentWindow.isMaximized());
     maximized = currentWindow && currentWindow.isMaximized();
   }
 
@@ -34,7 +33,7 @@
 
 <style>
   .appbar {
-    height: 42px;
+    height: 2.6rem;
     width: 100vw;
   }
   .iconTitle {
@@ -44,7 +43,7 @@
   .btnAction {
     cursor: default;
     height: 100%;
-    width: 42px;
+    width: 2.6rem;
     display: inline-flex;
   }
 </style>
