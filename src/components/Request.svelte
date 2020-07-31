@@ -5,6 +5,8 @@
   import Button from 'smelte/src/components/Button';
   import { Select } from 'smelte';
   import { data, status, loading } from '../store/response';
+  import { bodyRaw } from '../store/request';
+  import JsonEditor from './JsonEditor.svelte';
 
   let url: string = 'http://jsonplaceholder.typicode.com/users';
   let method: string = 'get';
@@ -21,15 +23,7 @@
   async function handleSubmit() {
     loading.set(true);
     try {
-      let body;
-
-      try {
-        body = JSON.parse(raw);
-      } catch {
-        body = null;
-      }
-
-      const res = await axios[method](url, body);
+      const res = await axios[method](url, $bodyRaw);
       data.set(res.data);
       status.set(res.status);
     } catch (err) {
@@ -43,6 +37,6 @@
 <form on:submit|preventDefault={handleSubmit}>
   <TextField label="Url" bind:value={url} />
   <Select items={methods} bind:value={method} label="Method" />
-  <TextField textarea bind:value={raw} label="Raw JSON" />
+  <JsonEditor />
   <Button>Send</Button>
 </form>
