@@ -1,7 +1,7 @@
 <script lang="ts">
   import JSONFormatter from 'json-formatter-js';
 
-  export let code: string;
+  export let code: object;
   let el: HTMLElement;
 
   $: {
