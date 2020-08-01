@@ -43,8 +43,8 @@
       <div class="w-full mx-2">
         <TextField label="Value" bind:value />
       </div>
-      <div class="mx-2">
-        <Button color="error" on:click={() => deleteHeader(id)}>Delete</Button>
+      <div class="mx-2 mb-4">
+        <Button color="error" on:click={() => deleteHeader(id)} icon="delete" />
       </div>
     </div>
   {/each}

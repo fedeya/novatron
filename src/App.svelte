@@ -5,13 +5,17 @@
 </script>
 
 <style>
-  .container {
-    margin-top: 42px;
+  .main-comtainer {
+    padding: 2rem;
+    height: calc(100vh - 2.6rem);
+    overflow-y: auto;
   }
 </style>
 
 <Appbar />
-<div class="container mx-auto">
-  <Request />
-  <Response />
+<div class="main-comtainer">
+  <div class="container mx-auto">
+    <Request />
+    <Response />
+  </div>
 </div>
