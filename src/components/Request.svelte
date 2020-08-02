@@ -1,5 +1,5 @@
 <script lang="ts">
-  import axios, { AxiosResponse } from 'axios';
+  import axios, { AxiosResponse, AxiosError } from 'axios';
   import TextField from 'smelte/src/components/TextField';
   import List from 'smelte/src/components/List';
   import Button from 'smelte/src/components/Button';
@@ -39,9 +39,12 @@
       data.set(res.data);
       status.set(res.status);
     } catch (err) {
-      console.log(err);
-      data.set(err.response.data);
-      status.set(err.response.status);
+      if (err.response) {
+        data.set(err.response.data);
+        status.set(err.response.status);
+      } else {
+        data.set(err.message);
+      }
     }
     loading.set(false);
   }
