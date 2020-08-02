@@ -15,7 +15,7 @@
     let addedHeaders = {};
 
     headers.forEach(({ header, value }, index) => {
-      if (value === '') return;
+      if (header === '') return;
       addedHeaders[header] = value;
     });
 
