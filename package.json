@@ -44,6 +44,7 @@
     "axios": "^0.19.2",
     "codeflask": "^1.4.1",
     "json-formatter-js": "^2.3.4",
+    "query-string": "^6.13.1",
     "sirv-cli": "^1.0.0",
     "smelte": "^1.0.15"
   }

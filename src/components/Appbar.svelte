@@ -10,9 +10,12 @@
   }
 
   onMount(() => {
-    currentWindow.addListener('maximize', onChangeState);
-    currentWindow.addListener('unmaximize', onChangeState);
-    currentWindow.addListener('restore', onChangeState);
+    if (currentWindow) {
+      currentWindow.removeAllListeners();
+      currentWindow.addListener('maximize', onChangeState);
+      currentWindow.addListener('unmaximize', onChangeState);
+      currentWindow.addListener('restore', onChangeState);
+    }
     return () => {
       currentWindow && currentWindow.removeAllListeners();
     };
