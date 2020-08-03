@@ -5,13 +5,17 @@
 
   let el: HTMLElement;
   let editor;
+  let isValid = true;
   onMount(() => {
     editor = new CodeFlask(el, { language: 'js', lineNumbers: true });
     editor.onUpdate(code => {
+      const val = editor.getCode().trim();
       try {
-        bodyRaw.set(JSON.parse(editor.getCode()));
+        bodyRaw.set(JSON.parse(val));
+        isValid = true;
       } catch (error) {
         bodyRaw.set({});
+        isValid = val.length === 0;
       }
     });
   });
@@ -19,15 +23,22 @@
 
 <style>
   .codeflask-container {
-    position: relative;
     height: 250px;
   }
   label {
     font-size: 0.7rem;
   }
+  .error {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
 </style>
 
-<div class="my-2">
+<div class="my-2 relative">
   <label class="ml-4 block">Body Raw JSON</label>
-  <div class="codeflask-container" bind:this={el} />
+  <div class="codeflask-container relative" bind:this={el} />
+  {#if !isValid}
+    <div class="error">Invalid Format</div>
+  {/if}
 </div>
