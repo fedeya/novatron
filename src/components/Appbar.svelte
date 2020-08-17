@@ -15,6 +15,9 @@
       currentWindow.addListener('maximize', onChangeState);
       currentWindow.addListener('unmaximize', onChangeState);
       currentWindow.addListener('restore', onChangeState);
+      currentWindow.addListener('close', () => {
+        currentWindow && currentWindow.removeAllListeners();
+      });
     }
     return () => {
       currentWindow && currentWindow.removeAllListeners();
