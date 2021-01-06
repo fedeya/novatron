@@ -41,7 +41,7 @@
     "wait-on": "4.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "codeflask": "^1.4.1",
     "json-formatter-js": "^2.3.4",
     "query-string": "^6.13.1",
